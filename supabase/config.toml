@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.check-balance]
 verify_jwt = false
+
+[functions.kodbot-chat]
+verify_jwt = false
