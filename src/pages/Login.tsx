@@ -25,9 +25,10 @@ const Login = () => {
       if (error) throw error;
       if (data?.error) throw new Error(data.error);
 
-      // Store token in localStorage (cookie is set by backend too)
+      // Store token in localStorage and cookie
       localStorage.setItem("kodbank_token", data.token);
       localStorage.setItem("kodbank_username", data.username);
+      document.cookie = `kodbank_token=${data.token}; path=/; max-age=3600; SameSite=Lax`;
 
       toast({ title: "Login successful!", description: `Welcome back, ${data.username}` });
       navigate("/dashboard");
