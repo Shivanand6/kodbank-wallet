@@ -8,7 +8,7 @@ import RemindersTab from "@/components/dashboard/RemindersTab";
 import ScanPayTab from "@/components/dashboard/ScanPayTab";
 import HuggingChatbot from "@/components/HuggingChatbot";
 
-type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay" | "chatbot";
+type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState<Tab>("overview");
