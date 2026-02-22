@@ -3,61 +3,63 @@ import React, { useState } from "react";
 const HuggingChatbot = () => {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
-
-  const API_URL =
-    "https://api-inference.huggingface.co/models/TinyLlama/TinyLlama-1.1B-Chat-v1.0";
-
-  const API_KEY = "import React, { useState } from "react";
-
-const HuggingChatbot = () => {
-  const [message, setMessage] = useState("");
-  const [chat, setChat] = useState([]);
-
-  const API_URL =
-    "https://api-inference.huggingface.co/models/TinyLlama/TinyLlama-1.1B-Chat-v1.0";
-
-  const API_KEY = "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";
+  const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
-    if (!message) return;
+    if (!message.trim()) return;
 
     const userMessage = { sender: "You", text: message };
-    setChat([...chat, userMessage]);
-
+    setChat((prev) => [...prev, userMessage]);
     setMessage("");
+    setLoading(true);
 
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        inputs: message,
-      }),
-    });
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    const botReply = {
-      sender: "Bot",
-      text: data.generated_text || "Sorry, no response",
-    };
+      const botMessage = {
+        sender: "Bot",
+        text: data.reply,
+      };
 
-    setChat((prev) => [...prev, botReply]);
+      setChat((prev) => [...prev, botMessage]);
+    } catch (error) {
+      setChat((prev) => [
+        ...prev,
+        { sender: "Bot", text: "Error connecting to AI." },
+      ]);
+    }
+
+    setLoading(false);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Wallet Assistant</h2>
+    <div style={{ maxWidth: "500px", margin: "auto", marginTop: "40px" }}>
+      <h2>Wallet AI Assistant</h2>
 
-      <div style={{ height: "300px", overflowY: "scroll", border: "1px solid #ccc", padding: "10px" }}>
+      <div
+        style={{
+          height: "300px",
+          overflowY: "auto",
+          border: "1px solid #ccc",
+          padding: "10px",
+          marginBottom: "10px",
+        }}
+      >
         {chat.map((msg, index) => (
           <div key={index}>
             <strong>{msg.sender}: </strong>
             {msg.text}
           </div>
         ))}
+        {loading && <div>Bot is typing...</div>}
       </div>
 
       <input
@@ -66,65 +68,9 @@ const HuggingChatbot = () => {
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Ask something..."
         style={{ width: "70%", padding: "10px" }}
+        onKeyDown={(e) => e.key === "Enter" && sendMessage()}
       />
-      <button onClick={sendMessage} style={{ padding: "10px" }}>
-        Send
-      </button>
-    </div>
-  );
-};
 
-export default HuggingChatbot;";
-
-  const sendMessage = async () => {
-    if (!message) return;
-
-    const userMessage = { sender: "You", text: message };
-    setChat([...chat, userMessage]);
-
-    setMessage("");
-
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        inputs: message,
-      }),
-    });
-
-    const data = await response.json();
-
-    const botReply = {
-      sender: "Bot",
-      text: data.generated_text || "Sorry, no response",
-    };
-
-    setChat((prev) => [...prev, botReply]);
-  };
-
-  return (
-    <div style={{ padding: "20px" }}>
-      <h2>Wallet Assistant</h2>
-
-      <div style={{ height: "300px", overflowY: "scroll", border: "1px solid #ccc", padding: "10px" }}>
-        {chat.map((msg, index) => (
-          <div key={index}>
-            <strong>{msg.sender}: </strong>
-            {msg.text}
-          </div>
-        ))}
-      </div>
-
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Ask something..."
-        style={{ width: "70%", padding: "10px" }}
-      />
       <button onClick={sendMessage} style={{ padding: "10px" }}>
         Send
       </button>
