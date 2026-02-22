@@ -6,7 +6,7 @@ import TransactionsTab from "@/components/dashboard/TransactionsTab";
 import AnalyticsTab from "@/components/dashboard/AnalyticsTab";
 import RemindersTab from "@/components/dashboard/RemindersTab";
 import ScanPayTab from "@/components/dashboard/ScanPayTab";
-import ChatbotTab from "@/components/dashboard/ChatbotTab";
+import HuggingChatbot from "@/components/HuggingChatbot";
 
 type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay" | "chatbot";
 
@@ -32,7 +32,8 @@ const Dashboard = () => {
       case "analytics": return <AnalyticsTab />;
       case "reminders": return <RemindersTab />;
       case "scan-pay": return <ScanPayTab />;
-      case "chatbot": return <ChatbotTab />;
+      case "chatbot": return <HuggingChatbot />;
+        
     }
   };
 
