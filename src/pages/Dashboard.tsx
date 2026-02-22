@@ -6,7 +6,6 @@ import TransactionsTab from "@/components/dashboard/TransactionsTab";
 import AnalyticsTab from "@/components/dashboard/AnalyticsTab";
 import RemindersTab from "@/components/dashboard/RemindersTab";
 import ScanPayTab from "@/components/dashboard/ScanPayTab";
-import HuggingChatbot from "@/components/HuggingChatbot";
 
 type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay";
 
@@ -18,28 +17,39 @@ const Dashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem("kodbank_token");
     const user = localStorage.getItem("kodbank_username");
+
     if (!token || !user) {
       navigate("/login");
       return;
     }
+
     setUsername(user);
   }, [navigate]);
 
   const renderTab = () => {
     switch (activeTab) {
-      case "overview": return <OverviewTab />;
-      case "transactions": return <TransactionsTab />;
-      case "analytics": return <AnalyticsTab />;
-      case "reminders": return <RemindersTab />;
-      case "scan-pay": return <ScanPayTab />;
-    
-        
+      case "overview":
+        return <OverviewTab />;
+      case "transactions":
+        return <TransactionsTab />;
+      case "analytics":
+        return <AnalyticsTab />;
+      case "reminders":
+        return <RemindersTab />;
+      case "scan-pay":
+        return <ScanPayTab />;
+      default:
+        return <OverviewTab />;
     }
   };
 
   return (
     <div className="flex min-h-screen bg-background">
-      <DashboardSidebar activeTab={activeTab} onTabChange={setActiveTab} username={username} />
+      <DashboardSidebar
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        username={username}
+      />
       <main className="flex-1 p-6 lg:p-8 overflow-y-auto">
         {renderTab()}
       </main>
