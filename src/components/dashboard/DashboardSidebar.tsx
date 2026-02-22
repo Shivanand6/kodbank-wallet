@@ -6,7 +6,6 @@ import {
   PieChart,
   Bell,
   QrCode,
-  MessageCircle,
   LogOut,
   ChevronLeft,
   ChevronRight,
@@ -15,7 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay" | "chatbot";
+type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay";
 
 interface DashboardSidebarProps {
   activeTab: Tab;
@@ -29,10 +28,13 @@ const navItems: { id: Tab; label: string; icon: React.ElementType }[] = [
   { id: "analytics", label: "Analytics", icon: PieChart },
   { id: "reminders", label: "Reminders", icon: Bell },
   { id: "scan-pay", label: "Scan & Pay", icon: QrCode },
-  { id: "chatbot", label: "KodBot AI", icon: MessageCircle },
 ];
 
-const DashboardSidebar = ({ activeTab, onTabChange, username }: DashboardSidebarProps) => {
+const DashboardSidebar = ({
+  activeTab,
+  onTabChange,
+  username,
+}: DashboardSidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
 
@@ -50,15 +52,17 @@ const DashboardSidebar = ({ activeTab, onTabChange, username }: DashboardSidebar
         collapsed ? "w-20" : "w-64"
       )}
     >
-      {/* Logo */}
       <div className="flex items-center gap-3 px-5 py-6 border-b border-border/50">
         <div className="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center shrink-0">
           <Wallet className="w-5 h-5 text-primary-foreground" />
         </div>
-        {!collapsed && <span className="text-xl font-display font-bold gold-text">KodBank</span>}
+        {!collapsed && (
+          <span className="text-xl font-display font-bold gold-text">
+            KodBank
+          </span>
+        )}
       </div>
 
-      {/* Nav */}
       <nav className="flex-1 py-4 px-3 space-y-1">
         {navItems.map((item) => (
           <button
@@ -77,11 +81,11 @@ const DashboardSidebar = ({ activeTab, onTabChange, username }: DashboardSidebar
         ))}
       </nav>
 
-      {/* Footer */}
       <div className="p-3 border-t border-border/50 space-y-2">
         {!collapsed && (
           <div className="px-3 py-2 text-xs text-muted-foreground">
-            Logged in as <span className="text-foreground font-medium">{username}</span>
+            Logged in as{" "}
+            <span className="text-foreground font-medium">{username}</span>
           </div>
         )}
         <Button
@@ -97,7 +101,11 @@ const DashboardSidebar = ({ activeTab, onTabChange, username }: DashboardSidebar
           onClick={() => setCollapsed(!collapsed)}
           className="w-full flex items-center justify-center p-2 rounded-lg text-muted-foreground hover:bg-secondary/50 transition-colors"
         >
-          {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+          {collapsed ? (
+            <ChevronRight className="w-4 h-4" />
+          ) : (
+            <ChevronLeft className="w-4 h-4" />
+          )}
         </button>
       </div>
     </aside>
