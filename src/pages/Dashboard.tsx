@@ -32,7 +32,7 @@ const Dashboard = () => {
       case "analytics": return <AnalyticsTab />;
       case "reminders": return <RemindersTab />;
       case "scan-pay": return <ScanPayTab />;
-      case "chatbot": return <HuggingChatbot />;
+    
         
     }
   };
