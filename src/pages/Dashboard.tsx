@@ -6,8 +6,15 @@ import TransactionsTab from "@/components/dashboard/TransactionsTab";
 import AnalyticsTab from "@/components/dashboard/AnalyticsTab";
 import RemindersTab from "@/components/dashboard/RemindersTab";
 import ScanPayTab from "@/components/dashboard/ScanPayTab";
+import HuggingChatbot from "@/components/HuggingChatbot";
 
-type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay";
+type Tab =
+  | "overview"
+  | "transactions"
+  | "analytics"
+  | "reminders"
+  | "scan-pay"
+  | "chatbot";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState<Tab>("overview");
@@ -38,6 +45,8 @@ const Dashboard = () => {
         return <RemindersTab />;
       case "scan-pay":
         return <ScanPayTab />;
+      case "chatbot":
+        return <HuggingChatbot />;
       default:
         return <OverviewTab />;
     }
