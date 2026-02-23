@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const HuggingChatbot = () => {
   const [message, setMessage] = useState("");
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState<{ sender: string; text: string }[]>([]);
   const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
@@ -24,12 +24,10 @@ const HuggingChatbot = () => {
 
       const data = await response.json();
 
-      const botMessage = {
-        sender: "Bot",
-        text: data.reply,
-      };
-
-      setChat((prev) => [...prev, botMessage]);
+      setChat((prev) => [
+        ...prev,
+        { sender: "Bot", text: data.reply },
+      ]);
     } catch (error) {
       setChat((prev) => [
         ...prev,
@@ -41,20 +39,12 @@ const HuggingChatbot = () => {
   };
 
   return (
-    <div style={{ maxWidth: "500px", margin: "auto", marginTop: "40px" }}>
-      <h2>Wallet AI Assistant</h2>
+    <div className="max-w-xl mx-auto">
+      <h2 className="text-xl font-bold mb-4">KodBot AI</h2>
 
-      <div
-        style={{
-          height: "300px",
-          overflowY: "auto",
-          border: "1px solid #ccc",
-          padding: "10px",
-          marginBottom: "10px",
-        }}
-      >
+      <div className="h-80 overflow-y-auto border rounded-lg p-3 mb-4 bg-card">
         {chat.map((msg, index) => (
-          <div key={index}>
+          <div key={index} className="mb-2">
             <strong>{msg.sender}: </strong>
             {msg.text}
           </div>
@@ -62,18 +52,21 @@ const HuggingChatbot = () => {
         {loading && <div>Bot is typing...</div>}
       </div>
 
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Ask something..."
-        style={{ width: "70%", padding: "10px" }}
-        onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-      />
-
-      <button onClick={sendMessage} style={{ padding: "10px" }}>
-        Send
-      </button>
+      <div className="flex gap-2">
+        <input
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Ask something..."
+          className="flex-1 border rounded px-3 py-2"
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+        />
+        <button
+          onClick={sendMessage}
+          className="bg-primary text-primary-foreground px-4 py-2 rounded"
+        >
+          Send
+        </button>
+      </div>
     </div>
   );
 };
