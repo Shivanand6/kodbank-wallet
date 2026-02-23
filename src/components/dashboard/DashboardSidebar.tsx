@@ -14,7 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay";
+type Tab = "overview" | "transactions" | "analytics" | "reminders" | "scan-pay" | "chatbot";
 
 interface DashboardSidebarProps {
   activeTab: Tab;
