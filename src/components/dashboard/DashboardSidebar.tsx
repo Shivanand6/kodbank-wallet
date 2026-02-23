@@ -28,6 +28,7 @@ const navItems: { id: Tab; label: string; icon: React.ElementType }[] = [
   { id: "analytics", label: "Analytics", icon: PieChart },
   { id: "reminders", label: "Reminders", icon: Bell },
   { id: "scan-pay", label: "Scan & Pay", icon: QrCode },
+  { id: "chatbot", label: "KodBot AI", icon: MessageCircle },
 ];
 
 const DashboardSidebar = ({
