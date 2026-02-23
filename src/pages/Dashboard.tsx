@@ -6,7 +6,7 @@ import TransactionsTab from "@/components/dashboard/TransactionsTab";
 import AnalyticsTab from "@/components/dashboard/AnalyticsTab";
 import RemindersTab from "@/components/dashboard/RemindersTab";
 import ScanPayTab from "@/components/dashboard/ScanPayTab";
-import HuggingChatbot from "@/components/HuggingChatbot";
+import HuggingChatbot from "@/components/dashboard/HuggingChatbot";
 
 type Tab =
   | "overview"
