@@ -1,6 +1,6 @@
-# 💳 KodBank Wallet – Digital Banking & Smart Wallet Platform
+# 💳 KodBank Wallet – Smart Digital Wallet
 
-> A modern Full Stack Digital Wallet application that enables users to securely manage accounts, perform digital transactions, monitor balances, and experience seamless online banking through an intuitive and responsive user interface.
+> A modern digital wallet application providing a clean and intuitive interface for managing digital finances, tracking transactions, and delivering a seamless online wallet experience.
 
 🌐 **Live Demo:** https://kodbank-wallet.vercel.app
 
@@ -10,173 +10,79 @@
 
 # 📖 Overview
 
-KodBank Wallet is a modern Full Stack Digital Banking application developed to simulate real-world online banking and digital wallet operations. The platform demonstrates secure authentication, account management, transaction handling, responsive UI design, backend integration, database management, and cloud deployment.
+KodBank Wallet is a modern digital wallet application developed to simulate real-world online financial management. The application focuses on delivering a responsive, user-friendly experience with intuitive navigation, interactive dashboards, and modern UI components.
 
-The project showcases practical implementation of modern software engineering principles, scalable application architecture, responsive web development, and secure digital financial services.
+The project demonstrates modern frontend development, reusable React components, responsive design principles, and cloud deployment.
 
 ---
 
-# ✨ Key Features
+# ✨ Features
 
-## 💳 Digital Wallet
-
-- Smart wallet dashboard
-- Real-time balance display
-- Wallet management
-
-## 💰 Money Management
-
-- Deposit funds
-- Withdraw funds
-- Balance tracking
-- Transaction management
-
-## 📊 Transaction History
-
-- View transaction records
-- Track wallet activities
-- Organized financial history
-
-## 🔐 Secure Authentication
-
-- User Registration
-- Secure Login
-- Authentication & Authorization
-- Protected user sessions
-
-## 👤 User Profile
-
-- Personal account management
-- User information dashboard
-- Profile updates
-
-## 📱 Responsive Design
-
-- Mobile-friendly interface
-- Tablet optimized
-- Desktop compatible
-
-## ☁ Cloud Deployment
-
-- Production-ready deployment
-- High availability
-- Fast application performance
+- 💳 Digital Wallet Dashboard
+- 💰 Balance Overview
+- 📊 Transaction Tracking
+- 📈 Financial Insights
+- 👤 User Profile
+- 📱 Responsive Interface
+- ⚡ Smooth User Experience
+- 🎨 Modern UI Design
+- ☁ Cloud Hosted Application
 
 ---
 
 # 🛠 Technology Stack
 
-## Programming Languages
+## Frontend
 
-- Python
-- JavaScript
-- HTML5
-- CSS3
-
-## Frameworks
-
-- Django
-- REST APIs
-
-## Database
-
-- SQLite
-- SQL
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
 
 ## Development Tools
 
 - Git
 - GitHub
 - VS Code
+- Lovable
 
 ## Deployment
 
 - Vercel
-- Cloud Hosting
 
 ---
 
 # 💡 Software Engineering Highlights
 
-- Python Full Stack Development
-- Django Web Framework
-- REST API Development
-- Authentication & Authorization
-- CRUD Operations
-- Database Design
-- SQL Integration
-- Backend Development
-- Responsive Web Design
-- Cloud Deployment
-- Scalable Application Architecture
-- Software Development Life Cycle (SDLC)
+- React Development
+- TypeScript
+- Component-Based Architecture
+- Responsive UI Development
+- Modern Dashboard Design
 - Clean Code Practices
-- Version Control using Git & GitHub
-
----
-
-# 🚀 Core Functionalities
-
-- User registration & login
-- Secure authentication
-- Digital wallet management
-- Deposit & withdrawal operations
-- Balance monitoring
-- Transaction history
-- Responsive dashboard
-- Database-driven application
-- Cloud-hosted deployment
-
----
-
-# 🎯 Learning Outcomes
-
-This project strengthened practical knowledge in:
-
-- Python Programming
-- Django Framework
-- Full Stack Development
-- SQL Database Management
-- Authentication Systems
-- REST API Development
-- Backend Engineering
-- Responsive Web Design
 - Cloud Deployment
-- Software Engineering Best Practices
+- Version Control using Git & GitHub
 
 ---
 
 # 🚀 Installation
 
-Clone the repository
-
 ```bash
 git clone https://github.com/Shivanand6/kodbank-wallet.git
-```
 
-Navigate into the project
-
-```bash
 cd kodbank-wallet
-```
 
-Install dependencies
+npm install
 
-```bash
-pip install -r requirements.txt
-```
-
-Run the development server
-
-```bash
-python manage.py runserver
+npm run dev
 ```
 
 ---
 
 # 🌐 Live Demo
 
-👉 https://kodbank-wallet.vercel.app
+https://kodbank-wallet.vercel.app
 
 ---
 
@@ -184,60 +90,29 @@ python manage.py runserver
 
 **Shivanand A Shirur**
 
-**Software Developer | Python Full Stack Developer**
+Software Developer | Python Full Stack Developer
 
-### Technical Skills
-
-- Python
-- Django
-- SQL
-- REST APIs
-- HTML5
-- CSS3
-- JavaScript
-- Git
-- GitHub
-- Cloud Deployment
-
----
-
-### Portfolio
-
+Portfolio:
 https://shivanandportfolio-eight.vercel.app
 
-### LinkedIn
-
+LinkedIn:
 https://linkedin.com/in/shivanand-shirur-sas
 
-### GitHub
-
+GitHub:
 https://github.com/Shivanand6
 
 ---
 
-# ⭐ Project Highlights
+# ⭐ Highlights
 
-- Digital Banking Application
-- Smart Wallet Management
-- Python Full Stack Development
-- Secure Authentication System
-- Database-Driven Architecture
-- REST API Integration
+- Smart Digital Wallet
+- Modern React Application
+- Interactive Dashboard
 - Responsive User Interface
+- Component-Based Architecture
 - Cloud Deployment
-- Scalable Software Design
-- Demonstrates Real-World Banking Application Development
+- Production-Ready Frontend
 
 ---
 
-# 📜 License
-
-This project is developed for educational purposes, portfolio demonstration, and showcasing Full Stack Software Development skills.
-
----
-
-# ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub.
-
-Your support is greatly appreciated!
+⭐ If you found this project useful, consider giving it a Star.
